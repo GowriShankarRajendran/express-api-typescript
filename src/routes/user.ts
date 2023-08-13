@@ -3,47 +3,6 @@ import { Iusers } from '../model/user';
 
 export const userRouter: Router = express.Router();
 
-//Swagger
-/**
- * @swagger
- * components:
- *   schemas:
- *     User:
- *       type: object
- *       required:
- *         - name
- *         - dateOfBirth
- *         - phoneNumber
- *         - gender
- *         - location
- *       properties:
- *         id:
- *           type: string
- *           description: The auto-generated id of the book
- *         name:
- *           type: string
- *           description: The name of the user
- *         dateOfBirth:
- *           type: string
- *           description: The date of birth of the user
- *         phoneNumber:
- *           type: number
- *           description: The phone number of the user
- *         gender:
- *           type: string
- *           description: The gender of the user
- *         location:
- *           type: string
- *           description: The gender of the user
- *       example:
- *         id: 1
- *         name: Test User
- *         dateOfBirth: 01/01/2023
- *         phoneNumber: 123245
- *         gender: Male
- *         location: Chennai
- */
-
 let users: Iusers[] = [
     {id: 1, name: 'Gowri Shankar', dateOfBirth: new Date('1993/09/13'), phoneNumber: 729928554, gender: 'Male', location: 'Chennai'},
     {id: 2, name: 'Sivan', dateOfBirth: new Date('1985/01/20'), phoneNumber: 9876543210, gender: 'Male', location: 'Thiruvanamalai'},
