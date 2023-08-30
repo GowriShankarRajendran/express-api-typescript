@@ -13,6 +13,7 @@ const port = 6200;
 
 app.use(express.json());
 
+//Route Authentication
 app.use("/", (req: Request, res: Response, next: NextFunction) => {
     req.url === '/order' || req.url === '/product' ? res.status(401).json(`You not have access on ${req.url} route`) : next();
 });
