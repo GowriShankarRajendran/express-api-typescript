@@ -26,6 +26,12 @@ Express API with Typescript
 -> Create src folder and index.ts file
 -> Reference https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 
+Database
+-> npm install --save mysql2
+-> npm install --save-dev @types/node
+-> Create src/server.ts file
+-> Reference https://github.com/sidorares/node-mysql2/blob/HEAD/documentation/en/TypeScript-Examples.md
+
 Swagger
 -> npm i swagger-ui-express swagger-jsdoc
 -> npm i --save-dev @types/swagger-ui-express @types/swagger-jsdoc

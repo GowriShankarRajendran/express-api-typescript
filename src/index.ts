@@ -1,4 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
+import { database } from './server';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpecs } from './swagger-setting';
 
@@ -35,6 +36,23 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
     res.status(error.status).json({message: error.message, url: req.url, method: req.method});
 });
 
-app.listen(port, () => {
-    console.log(`Express Server listening on port ${port}`);
+database.connect((err) => {
+    if(err){
+        console.log(err);
+    }
+    else{
+        app.listen(port, () => {
+            console.log(`Express Server listening on port ${port}`);
+            database.query('select * from employee', (err, result) => {
+                if(err) throw err;
+                if(result){
+                    console.log(result);
+                }
+            });
+        });
+        console.log('Database Connected Successfully');
+    }
 });
+// app.listen(port, () => {
+//     console.log(`Express Server listening on port ${port}`);
+// });
