@@ -8,6 +8,7 @@ import { userRouter } from './routes/user';
 import { orderRouter } from './routes/order';
 import { productRouter } from './routes/product';
 import { locationRouter } from './routes/location';
+import { employeeRouter } from './routes/employee';
 
 const app: Express = express();
 const port = 6200;
@@ -24,6 +25,7 @@ app.use("/user", userRouter);
 app.use("/order", orderRouter);
 app.use("/product", productRouter);
 app.use("/location", locationRouter);
+app.use("/employee", employeeRouter);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
 
 //Route Not Found
