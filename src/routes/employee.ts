@@ -68,6 +68,20 @@ employeeRouter.put("/:id", (req: Request, res: Response, next: NextFunction) => 
     });
 });
 
+// Update Employee Name
+employeeRouter.patch("/:id", (req: Request, res: Response, next: NextFunction) => {
+    let getEmpID: string = req.params.id;
+    let sqlQuery: string = `update employee set empName = '${req.body.empName}' where empId = ${getEmpID}`;
+    database.query(sqlQuery, (err: QueryError, result: any) => {
+        if(err){
+            res.status(500).json(err);
+        }
+        else{
+            res.status(200).json(result);
+        }
+    });
+});
+
 // Delete Employee
 employeeRouter.delete("/:id", (req: Request, res: Response, next: NextFunction) => {
     let getEmpID: string = req.params.id;

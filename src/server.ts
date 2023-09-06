@@ -1,10 +1,20 @@
-import mysql, { ConnectionOptions } from 'mysql2';
+import mysql, { ConnectionOptions, PoolOptions } from 'mysql2';
 
-const access: ConnectionOptions = {
+const access: PoolOptions = {
+    connectionLimit: 10,
     host: 'localhost',
     user: 'root',
     password: 'Admin@123',
     database: 'company'
 };
 
-export const database = mysql.createConnection(access);
+export const database = mysql.createPool(access);
+
+// const access: ConnectionOptions = {
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Admin@123',
+//     database: 'company'
+// };
+
+// export const database = mysql.createConnection(access);

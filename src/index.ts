@@ -38,14 +38,16 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
     res.status(error.status).json({message: error.message, url: req.url, method: req.method});
 });
 
-database.connect((err) => {
+//database.connect((err) => {
+database.getConnection((err, connection) => {
     if(err){
         console.log(err);
     }
     else{
+        connection.release();
         app.listen(port, () => {
             console.log(`Express Server listening on port ${port}`);
-            database.query('select * from employee', (err, result) => {
+            database.query('SELECT 1', (err, result) => {
                 if(err) throw err;
                 if(result){
                     console.log(result);
