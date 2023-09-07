@@ -26,6 +26,12 @@ Express API with Typescript
 -> Create src folder and index.ts file
 -> Reference https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 
+Add Environment Variable File
+-> npm i dotenv
+-> Create .env file in root folder
+-> import dotenv from 'dotenv' (index.ts & server.js file)
+-> dotenv.config()
+
 Database
 -> npm install --save mysql2
 -> npm install --save-dev @types/node

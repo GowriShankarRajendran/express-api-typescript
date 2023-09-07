@@ -1,7 +1,9 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
+import dotenv from 'dotenv';
 import { database } from './server';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpecs } from './swagger-setting';
+dotenv.config();
 
 //Routes
 import { userRouter } from './routes/user';
@@ -11,7 +13,7 @@ import { locationRouter } from './routes/location';
 import { employeeRouter } from './routes/employee';
 
 const app: Express = express();
-const port = 6200;
+const port = process.env.PORT;
 
 app.use(express.json());
 
