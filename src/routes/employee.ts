@@ -1,11 +1,12 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
 import { QueryError } from 'mysql2';
 import { database }  from '../server';
+import { checkLoginUser } from '../middleware/checkLoginUser';
 
 export const employeeRouter: Router = express.Router();
 
 // Get All Employee Detail
-employeeRouter.get("/", (req: Request, res: Response, next: NextFunction) => {
+employeeRouter.get("/", checkLoginUser, (req: Request, res: Response, next: NextFunction) => {
     let sqlQuery: string = 'select * from employee';
     database.query(sqlQuery, (err: QueryError, result: any) => {
         if(err){

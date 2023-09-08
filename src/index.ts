@@ -17,11 +17,6 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-//Route Authentication
-app.use("/", (req: Request, res: Response, next: NextFunction) => {
-    req.url === '/order' || req.url === '/product' ? res.status(401).json(`You not have access on ${req.url} route`) : next();
-});
-
 //Routes
 app.use("/user", userRouter);
 app.use("/order", orderRouter);

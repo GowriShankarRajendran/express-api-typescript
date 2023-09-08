@@ -1,9 +1,10 @@
 import express, { Router, Request, Response, NextFunction } from "express";
+import { checkLoginUser } from '../middleware/checkLoginUser';
 
 export const orderRouter: Router = express.Router();
 
 //Get All Orders
-orderRouter.get("/", (req: Request, res: Response, next: NextFunction) => {
+orderRouter.get("/", checkLoginUser, (req: Request, res: Response, next: NextFunction) => {
     res.status(200).json(`Get All Orders Successfully`);
 });
 
