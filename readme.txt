@@ -38,6 +38,11 @@ Database
 -> Create src/server.ts file
 -> Reference https://github.com/sidorares/node-mysql2/blob/HEAD/documentation/en/TypeScript-Examples.md
 
+Express Validator
+-> npm install express-validator
+-> Reference https://express-validator.github.io/docs/
+-> Reference https://howtodevez.medium.com/using-express-validator-for-data-validation-in-nodejs-6946afd9d67e
+
 Swagger
 -> npm i swagger-ui-express swagger-jsdoc
 -> npm i --save-dev @types/swagger-ui-express @types/swagger-jsdoc
